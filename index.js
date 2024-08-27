@@ -1,9 +1,10 @@
 const mongoose = require("mongoose")
 const express = require("express")
 const cors = require("cors")
+const { app, httpServer } = require("./socket/socket")
 require("dotenv").config()
 
-const app = express()
+// const app = express()
 
 // step 1 middleware  = = app.use madhe use krel sagle middleware asta
 app.use(express.json())
@@ -27,5 +28,5 @@ mongoose.connect(process.env.MONGO_URL)
 
 mongoose.connection.once("open", () => {
     console.log("MONGO CONNECTED")
-    app.listen(process.env.PORT, console.log("SERVER RUNNING"))
+    httpServer.listen(process.env.PORT, console.log("SERVER RUNNING"))
 })
