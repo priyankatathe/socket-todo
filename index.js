@@ -8,6 +8,7 @@ require("dotenv").config()
 
 // step 1 middleware  = = app.use madhe use krel sagle middleware asta
 app.use(express.json())
+app.use(express.static("dist"))
 app.use(cors({ origin: true, credentials: true })) // cros origin resourser service
 
 // step 2 routes
